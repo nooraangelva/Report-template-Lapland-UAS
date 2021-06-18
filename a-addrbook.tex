@@ -1,0 +1,121 @@
+%***************************************************
+% A-AddrBook "a-addrbook.tex"
+%
+% An example of a set of higher-level commands built 
+% on top of the "\makecopy" command. This set 
+% provides some rudimentary support for creating
+% an address book.
+%
+% Requirements: The LaTeX (letter) source file must
+% use "aletter.cls" as its document class.
+%
+% Usage: 
+%
+% (A) For beginners: (1) If you like, modify the 
+% command instances in this file. (2) Include this 
+% file, with the "\input" command, in your source 
+% file, as the final part of the document body.
+%
+% (B) For non-beginners: Simply include all the 
+% required instances of these commands in your 
+% source.
+%
+% Note: The rudimentary "tool kit" can be seen to 
+% onsist of the following ones of the commands to 
+% be introduced below;
+%  - \mcaffixes
+%  - \mcdefault
+%  - \mccasual
+%  - \mcfree
+%  - \abentry
+%
+% @author: EL 2010
+%***************************************************
+
+% It is assumed that English is selected
+\mcaffixes{Dear}{,} % Sets the global state
+
+%***************************************************
+% On the #1 argument of "\mcaffixes":
+%   - must not begin or end with a space
+%   - if nonempty, a trailing space is automatically 
+%     provided 
+%***************************************************
+
+% Let us try to pick the personal part of the 
+% salutation out of the words constituting the 
+% recipient information. First, we introduce a
+% 'family' of four commands, with an increasing
+% number of arguments: 
+\mcyn{Anna}{Smith\\Xanadu Institute}
+\mcnyn{Dr.}{Bella}{Smith\\Xanadu Institute}
+\mcynyn{Dr.}{Cilla}{Smith}{\\Xanadu Institute}
+\mcnynyn{Docent}{Dr.}{Donna}{Smith}{\\Xanadu Institute}
+
+%***************************************************
+% On the arguments of the "\mc<y/n>*" commands, 
+% concerning the construction of the salutation:
+%  - only the 'y-arguments' ('y' is for "yes") are 
+%    included 
+%  - a space is automatically added between two 
+%    y-arguments
+% Restrictions concerning each argument:
+%  - should not begin or end with a space
+%  - other arguments than possibly the last one 
+%    should not be empty or contain newlines 
+%    (ie. "\\")
+%***************************************************
+
+% Suppose we want a more intimate salutation in 
+% every copy: 
+\mccasual
+\mcyn{Anna}{Jones\\Eldorado College}
+\mcnyn{Dr.}{Bella}{Jones\\Eldorado College}
+\mcynyn{Dr.}{Cilla}{Jones}{\\Eldorado College}
+\mcnynyn{Docent}{Dr.}{Donna}{Jones}{\\Eldorado College}
+\mcdefault
+
+%***************************************************
+% "\mccasual" sets the 'casual mode' on, which 
+% effectively transforms "\mcynyn" and "\mcnynyn"
+% into "\mcnynn" and "\mcnnynn", respectively (even 
+% if the latter two command names are not in actual 
+% use). The default mode can be re-set with 
+% "\mcdefault".
+%***************************************************
+
+% Using a salutation independent of the recipient info:
+\mcaffixes{Dear}{,} 
+\mccasual
+\mcfree{Dr. Doe}{Jack}{Dr. John Doe\\Shangri-La University}
+\mcdefault
+\mcfree{Dr. Doe}{Jack}{Dr. John Doe\\Shangri-La University}
+
+%***************************************************
+% When "\mcfree" is used, argument #1 is included in 
+% the salutation in default mode, and #2 in casual 
+% mode.
+%***************************************************
+
+% A basic address book entry:
+\mcaffixes{Dear}{,} 
+\mccasual
+\abentry{President}{Dr.}{John}{Jack}{K.}{Smith}{\\All Efforts Ltd}
+\mcdefault
+\abentry{President}{Dr.}{John}{Jack}{K.}{Smith}{\\All Efforts Ltd}
+
+%***************************************************
+% The semantics of "\abentry" is given by the 
+% 'schemes' used in the generation of the relevant 
+% items:
+%  - the recipient info: "yyynyyy"
+%  - the 'default' salutation: "nynnnyn"
+%  - the 'casual' salutation: "nnnynnn" when #4 is 
+%    nonempty; and "nnynnnn" otherwise
+% Restrictions concerning the arguments:
+%  - arguments #2, #3, and #6 should be nonempty
+%  - the arguments should have neither leading or 
+%    trailing spaces
+%  - other arguments than possibly the final #7
+%    should not contain newlines
+%***************************************************

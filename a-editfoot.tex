@@ -1,0 +1,105 @@
+%***************************************************
+% A-EditFoot "a-editfoot.tex"
+%
+% An example of how to redefine the footer texts. 
+% The original example here produces a personal 
+% footer (which also names the department) in 
+% Finnish. 
+%
+% The default footer texts are common to ICS Dept.
+% They are included in this file.
+%
+% Requirements: The LaTeX (letter) source file must
+% use "aletter.cls" as its document class. The
+% original example moreover requires that Finnish
+% is selected as the document language.
+%
+% Usage: 
+%
+% (A) For beginners: (1) Modify the set of 
+% redefinitions (in this file) according to your 
+% needs. (2) Include this file, with the "\input" 
+% command, in the preamble of your source file.
+%
+% (B) For non-beginners: Simply include all the 
+% required instances of the redefinition commands 
+% in your source.
+%
+% Notes: 
+% - The prefixes "en" and "fi" denote English and 
+%   Finnish, respectively. 
+% - The five columns of the footer are identified 
+%   as "A" - "E", and the three rows as "a" - "c". 
+% - Each command whose name contains the infix "Get" 
+%   returns the string that has been stored with the 
+%   corresponding command whose name lacks the 
+%   "Get".
+%
+% @author: EL 2010
+%***************************************************
+
+% The default Finnish footer texts from 
+% "aletter.cls": 
+%
+\enPostHead{Postal address:}
+\enVisitHead{Visiting address:}
+\enUniversity{Aalto University}
+%
+\fiPostHead{Postiosoite:}
+\fiVisitHead{K\"{a}yntiosoite:}
+\fiUniversity{Aalto-yliopisto}
+%
+\fiUnivPostA{}
+\fiUnivPostB{00076 Aalto}
+\fiUnivVisitA{}
+\fiUnivVisitB{}
+\fiUnivTel{Puhelin 09 47001}
+\fiUnivFax{}
+\fiUnivVat{VAT FI22283574}
+\fiUnivWeb{www.aalto.fi/fi/}
+\fiUnivEmail{}
+
+% Some additional Finnish footer texts (relevant 
+% to this example) from the original content of 
+% "aletter.tex":
+\fiDeptPostA{PL 15400}
+\fiDeptVisitA{Konemiehentie 2}
+\fiDeptVisitB{Espoo}
+\fiPersTel{Puhelin 09 470 25246}
+\fiPersFax{Faksi 09 470 23369}
+\fiDeptWeb{ics.tkk.fi/fi/}
+\fiPersWeb{users.ics.tkk.fi/orponen/}
+\fiPersEmail{pekka.orponen@tkk.fi}
+
+% Here we want to modify the built-in personal 
+% footer (the one that names even the department) 
+% as follows:
+% - the (actually redundant) "fi/" suffixes are
+%   removed from the www home page fields
+% - the fax number field is replaced with a mobile
+%   phone number field
+% - the person is named in the first row and the 
+%   university in the last row (which is opposite
+%   to the original convention)
+%
+% Note that the order of these four is significant
+% (see "aletter.tex" for an explanation):
+\fiUnivWeb{www.aalto.fi/}
+\fiSchlWeb{www.tkk.fi/}
+\fiDeptWeb{ics.tkk.fi/}
+\fiPersWeb{users.ics.tkk.fi/orponen/}
+%
+\persdeptfooter
+%
+\fiDb{GSM 049 999 9999}
+%
+\fiAa{\fiGetPerson}
+\fiAc{\fiGetUniversity}
+\fiEa{\fiGetPersWeb}
+\fiEc{\fiGetUnivWeb}
+
+% Finally: At the beginning of the document 
+% environment in the LaTeX source file, Finnish
+% should be selected as the document language.
+% Otherwise, the original example in this file
+% does not affect the output.

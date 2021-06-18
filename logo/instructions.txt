@@ -1,0 +1,20 @@
+The English Aalto SST logos were created by Kimmo Järvinen as follows:
+
+1) From https://inside.aalto.fi/display/INSIDE/en
+
+Tools -> Logo Generator
+or Tools -> Visual Identity Materials
+
+obtain three PDF CMYK Uncoated logos (for printing rather than screen),
+each with a different delimiter: ? ! "
+
+2) Open each of the three logos in the Inkscape program. First, remove
+the extra white area around the logo (File->Document Properties 
+and click "Fit page to selection").
+
+3) The correct Aalto RGB colours should then be set by hand, 
+accoording to their specific values:
+
+red:    237,41,57 (ED2939)
+blue:   00,101,189 (0065BD)
+yellow: 254,203,00 (FECB00)
